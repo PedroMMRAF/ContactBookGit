@@ -66,7 +66,7 @@ public class ContactBook {
         return null;
     }
 
-    public boolean checkRepeated() {
+    public boolean repeatedPhones() {
         int[] checked = new int[counter];
         int checkedNum = 0;
 
