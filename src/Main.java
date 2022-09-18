@@ -30,6 +30,9 @@ public class Main {
 
     public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
 
+    public static final String ALL_DIFFERENT_NUM = "All contacts have different phone numbers.";
+    public static final String EXIST_SAME_NUM = "There are contacts that share phone numbers.";
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ContactBook cBook = new ContactBook();
@@ -170,6 +173,9 @@ public class Main {
     }
     
     private static void repeatedPhones(ContactBook cBook) {
-
+        if(!cBook.repeatedPhones())
+            System.out.println(ALL_DIFFERENT_NUM);
+        else 
+            System.out.println(EXIST_SAME_NUM);
     }
 }
