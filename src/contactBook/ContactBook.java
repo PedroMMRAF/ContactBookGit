@@ -59,12 +59,25 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
-    //Pre: phone != null
     public String getName(int phone) {
         for (int i = 0; i < counter; i++)
             if (contacts[i].getPhone() == phone)
                 return contacts[i].getName();
         return null;
+    }
+
+    public boolean checkRepeated() {
+        int[] checked = new int[counter];
+        int checkedNum = 0;
+
+        for (int i = 0; i < counter; i++) {
+            for (int j = 0; j < checkedNum; j++)
+                if (contacts[i].getPhone() == checked[j])
+                    return true;
+            checked[checkedNum++] = contacts[i].getPhone();
+        }
+
+        return false;
     }
 
     private int searchIndex(String name) {
